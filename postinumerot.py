@@ -29,13 +29,20 @@ def main(postitoimipaikka: str):
     listofkeys.sort()
 
     if listofkeys and len(listofkeys) >= 1:
-        print(f'Postinumerot: {", ".join(listofkeys)}')
-        return True
+        postinumerot = ", ".join(listofkeys)
+        return postinumerot
+
+    return False
+
+
+def print_result(postinumerot: str):
+    if postinumerot:
+        print(f'Postinumerot: {postinumerot}')
     else:
-        print(f'Postitoimipaikka on virhellinen!')
-        return False
+        print('Postitoimipaikka on virhellinen!')
 
 
 if __name__ == '__main__':
     postitoimipaikka = user_input()
-    main(postitoimipaikka)
+    postinumerot = main(postitoimipaikka)
+    print_result(postinumerot)
